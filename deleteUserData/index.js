@@ -9,15 +9,13 @@ exports.handler = async (event, context) => {
 
   const params = {
     TableName: "Users",
-    Item: {
-      id: "2",
-      firstName: "karan",
-      lastName: "patel"
+    Key: {
+      id: "2"
     }
   }
 
   try {
-    const data = await documentClient.put(params).promise();
+    const data = await documentClient.delete(params).promise();
     console.log(data);
   } catch (err) {
     console.log(err);
